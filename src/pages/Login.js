@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-    // const navigate = useNavigate(); //預設navigate用useNavigate狀態
+    const navigate = useNavigate(); //預設navigate用useNavigate狀態
 
     const [data, setData] = useState({  //基礎狀態設定
         username: '', // 兩者皆為空字串
@@ -24,7 +24,7 @@ function Login() {
             const { token, expired } = res.data; //2.預設取值token
             document.cookie = `shopToken=${token}; expires=${new Date(expired)};`; //3.儲存token
             if (res.data.success) {  //如果api回傳為success，那就轉址到/admin/products頁面
-                // navigate(`/admin/products`)
+                navigate(`/admin/products`)
             }
 
         } catch (error) {
@@ -44,7 +44,7 @@ function Login() {
     return (<div className="container py-5">
         <div className="row justify-content-center">
             <div className="col-md-6">
-                <h2>訂單管理登入系統</h2>
+                <h2>登入帳號</h2>
 
                 <div className={`alert alert-danger ${loginState.message ? 'd-block' : 'd-none'}`} role="alert">
                     {loginState.message} {/*直接帶入api錯誤訊息*/}
