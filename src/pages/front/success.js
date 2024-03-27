@@ -36,12 +36,12 @@ function Success() {
             <div className='mt-5 mb-7'>
                 <div className='row'>
                     <div className='col-md-6'>
-                        <h2>餐點選購成功</h2>
+                        <h2>商品訂購成功</h2>
                         <p className='text-muted'>
-                            親愛的顧客，感謝您在本平台訂餐。我們非常感激您對我們的信任和支持，讓我們有機會為您提供美味的餐點和優質的服務。
+                            親愛的顧客，感謝您在本平台訂購產品。我們非常感激您對我們的信任和支持，讓我們有機會為您提供優質咖啡豆服務。
                         </p>
                         <p className='text-muted'>
-                            感謝您選擇本平台，祝您用餐愉快，生活愉快！
+                            感謝您選擇本平台，我們將盡快為您出貨！
                         </p>
                         <Link to='/' className='btn btn-outline-dark me-2 rounded-0 mb-4'>
                             回到首頁
@@ -50,7 +50,7 @@ function Success() {
                     <div className='col-md-6'>
                         <div className='card rounded-0 py-4'>
                             <div className='card-header border-bottom-0 bg-white px-4 py-0'>
-                                <h2>選購餐點細節</h2>
+                                <h2>產品訂購細節</h2>
                             </div>
                             <div className='card-body px-4 py-0'>
                                 <ul className='list-group list-group-flush'>
