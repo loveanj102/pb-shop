@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import Pagination from '../../components/Pagination';
-import { Link } from "react-router-dom";
+import ProductList from "../../components/ProductList";
 import Loading from "../../components/Loading";
 
 function Products() {
 
     const [products, setProducts] = useState([]); // 空陣列
     const [pagination, setPagination] = useState({}); //物件內容
-    const [isLoading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState();
 
     const getProducts = async (page = 1) => { //page=1 參數預設值，假設沒有帶入任何函數預設值就會等於1
         setLoading(true)
@@ -23,26 +24,37 @@ function Products() {
         getProducts(1);
     }, [])
 
+    function handleCategoryChange(e) {
+        setSelectedCategory(e.target.value);
+    }
+
+    function getFilteredList() {
+        if (!selectedCategory) {
+            return products;
+        }
+        return products.filter((item) => item.category === selectedCategory);
+    }
+
+    const filteredList = useMemo(getFilteredList, [selectedCategory, products]);
+
 
     return (<>
         <Loading isLoading={isLoading} />
-
-
         <div className="position-relative d-flex align-items-center justify-content-center" style={{ minHeight: '400px' }}>
             <div className="position-absolute"
                 style={{ top: 0, bottom: 0, left: 0, right: 0, backgroundImage: `url(https://images.unsplash.com/photo-1480399129128-2066acb5009e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)`, backgroundPosition: 'center center', opacity: 0.1, }}></div>
-            <h2 className="fw-bold">Lorem ipsum.</h2>
-
+            <h2 className="fw-bold">Coffee List</h2>
         </div>
+
         <div className="container mt-md-5 mt-3 mb-7">
             <div className="row">
                 <div className="col-md-4">
-                    <div className="accordion border border-bottom border-top-0 border-start-0 border-end-0 mb-3" id="accordionExample">
+                    {/* <div className="accordion border border-bottom border-top-0 border-start-0 border-end-0 mb-3" id="accordionExample">
                         <div className="card border-0">
                             <div className="card-header px-0 py-4 bg-white border border-bottom-0 border-top border-start-0 border-end-0 rounded-0" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne">
                                 <div className="d-flex justify-content-between align-items-center pe-1">
                                     <h4 className="mb-0">
-                                        Lorem ipsum
+                                        中美洲產區
                                     </h4>
                                     <i className="fas fa-chevron-down"></i>
                                 </div>
@@ -50,7 +62,7 @@ function Products() {
                             <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div className="card-body py-0">
                                     <ul className="list-unstyled">
-                                        <li><a href="#" className="py-2 d-block text-muted">Lorem ipsum</a></li>
+                                        <li><a href="#" className="py-2 d-block text-muted">Costa Rica</a></li>
                                         <li><a href="#" className="py-2 d-block text-muted">Lorem ipsum</a></li>
                                         <li><a href="#" className="py-2 d-block text-muted">Lorem ipsum</a></li>
                                         <li><a href="#" className="py-2 d-block text-muted">Lorem ipsum</a></li>
@@ -63,7 +75,7 @@ function Products() {
                             <div className="card-header px-0 py-4 bg-white border border-bottom-0 border-top border-start-0 border-end-0 rounded-0" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
                                 <div className="d-flex justify-content-between align-items-center pe-1">
                                     <h4 className="mb-0">
-                                        Lorem ipsum
+                                        南美洲產區
                                     </h4>
                                     <i className="fas fa-chevron-down"></i>
                                 </div>
@@ -84,7 +96,7 @@ function Products() {
                             <div className="card-header px-0 py-4 bg-white border border-bottom-0 border-top border-start-0 border-end-0 rounded-0" id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree">
                                 <div className="d-flex justify-content-between align-items-center pe-1">
                                     <h4 className="mb-0">
-                                        Lorem ipsum
+                                        非洲產區
                                     </h4>
                                     <i className="fas fa-chevron-down"></i>
                                 </div>
@@ -101,10 +113,33 @@ function Products() {
                                 </div>
                             </div>
                         </div>
+                    </div> */}
+                    <div>
+                        <select
+                            className="form-select"
+                            name="category-list"
+                            id="category-list"
+                            onChange={handleCategoryChange}
+                            value={selectedCategory}
+                        >
+                            <option value="">All</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Kenya">Kenya</option>
+                        </select>
                     </div>
                 </div>
                 <div className="col-md-8">
-                    <div className="row" >
+                    <div className="row">
+                        {filteredList.map((product) => (
+                            <ProductList {...product} key={product.id} />
+                        ))}
+                    </div>
+                    {/* <ProductList products={products} /> */}
+                    {/* <div className="row" >
                         {products.map((product) => {
                             return (<>
                                 <div className="col-md-6" key={product.id}>
@@ -123,12 +158,13 @@ function Products() {
                                 </div>
                             </>)
                         })}
+                    </div> */}
 
-                    </div>
                     <Pagination pagination={pagination} changePage={getProducts} />
                 </div>
             </div>
         </div>
+
 
     </>)
 
