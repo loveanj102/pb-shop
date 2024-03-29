@@ -71,6 +71,25 @@ function ProductModal({ closeProductModal, getProducts, type, tempProduct }) {
         }
     }
 
+
+    const handleFileInputChange = async (e) => {
+        const formData = new FormData();
+
+        const file = e.target.files[0];   // 選擇的圖片會在陣列的第一個位置
+        formData.append('file-to-upload', file);
+
+        const imgUrl = await uploadImage(formData);
+        setTempData({
+            ...tempData,
+            imageUrl: imgUrl
+        })
+    }
+
+    const uploadImage = async (formData) => {
+        const imgRes = await axios.post(`/v2/api/${process.env.REACT_APP_API_PATH}/admin/upload`, formData);
+        return imgRes.data.imageUrl;
+    }
+
     const submit = async () => {
 
         try { //按下submit的時候會判對，預設會用新增的形式
@@ -119,7 +138,7 @@ function ProductModal({ closeProductModal, getProducts, type, tempProduct }) {
                                         />
                                     </label>
                                 </div>
-                                <div className='form-group mb-2'>
+                                {/* <div className='form-group mb-2'>
                                     <label className='w-100' htmlFor='customFile'>
                                         或 上傳圖片
                                         <input
@@ -131,8 +150,23 @@ function ProductModal({ closeProductModal, getProducts, type, tempProduct }) {
 
                                         />
                                     </label>
+                                </div> */}
+                                <div className='form-group mb-2'>
+                                    <label className='w-100' htmlFor='customFile'>
+                                        或 上傳圖片
+                                        <input
+                                            type='file'
+                                            id='customFile'
+                                            name='imagesUrl'
+                                            className='form-control'
+                                            onChange={handleFileInputChange}
+                                        />
+                                    </label>
                                 </div>
-                                <img src="" alt='' className='img-fluid' />
+                                {/* <img src="" alt='' className='img-fluid' /> */}
+                                {tempData.imageUrl && (
+                                    <img src={tempData.imageUrl} alt='' className='img-fluid' />
+                                )}
                             </div>
                             <div className='col-sm-8'>
                                 {/* <pre>

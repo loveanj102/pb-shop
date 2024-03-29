@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { useOutletContext, useParams } from "react-router-dom";
+import { useOutletContext, useParams, Link } from "react-router-dom";
+
 
 
 
@@ -11,6 +12,8 @@ function ProductDetail() {
     const [cartQuantity, setCartQuantity] = useState(1);//為加減號設定參數，起始值為1
     const [isLoading, setIsLoading] = useState(false); //寫入一個狀態，預設為false
     const { getCart } = useOutletContext(); //用useOutletContext把此方法重新取回
+
+
 
     const addToCart = async () => {
         const data = {
@@ -48,6 +51,13 @@ function ProductDetail() {
 
 
 
+
+
+
+
+
+
+
     return (<>
         <div className="container">
             <div className="row align-items-center">
@@ -61,7 +71,7 @@ function ProductDetail() {
                                 <img src={product.imageUrl} className="d-block w-100" alt="..." />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1502743780242-f10d2ce370f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80" className="d-block w-100" alt="..." />
+                                <img src={product.imageUrl} className="d-block w-100" alt="..." />
                             </div>
                         </div>
                         <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -73,12 +83,14 @@ function ProductDetail() {
                             <span className="sr-only">Next</span>
                         </a>
                     </div>
+
                 </div>
+
                 <div className="col-md-5">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb bg-white px-0 mb-0 py-3">
-                            <li className="breadcrumb-item"><a className="text-muted" to=''>Home</a></li>
-                            <li className="breadcrumb-item"><a className="text-muted" to='product'>Product</a></li>
+                            <li className="breadcrumb-item"><Link className="text-muted" to='/'>Home</Link></li>
+                            <li className="breadcrumb-item"><Link className="text-muted" to='/product'>Product</Link></li>
                             <li className="breadcrumb-item active" aria-current="page">Detail</li>
                         </ol>
                     </nav>
