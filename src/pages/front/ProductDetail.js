@@ -62,7 +62,7 @@ function ProductDetail() {
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-md-7">
-                    <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                    {/* <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
                                 <img src={product.imageUrl} className="d-block w-100" alt="..." />
@@ -82,7 +82,8 @@ function ProductDetail() {
                             <span className="carousel-control-next-icon" aria-hidden="true"></span>
                             <span className="sr-only">Next</span>
                         </a>
-                    </div>
+                    </div> */}
+                    <img src={product.imageUrl} class="img-fluid rounded" alt="..."></img>
 
                 </div>
 

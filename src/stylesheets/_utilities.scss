@@ -54,3 +54,11 @@ object-fit:cover ;
     padding-left: 12px;
   }
 
+  .navbar {
+    background-color: rgba(41, 86, 55, 1); 
+    transition: background-color 0.5s ease-in-out;
+  }
+  .navbar.scrolled {
+    background-color: transparent; 
+  }
+

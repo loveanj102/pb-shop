@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './stylesheets/all.scss'
+import './Js/Main'
 import App from './App';
 import axios from 'axios';
 import reportWebVitals from './reportWebVitals';
