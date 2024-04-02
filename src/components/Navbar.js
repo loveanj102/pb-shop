@@ -2,14 +2,16 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../Assets/Artboard 10 copy 5.png";
 
-
 export default function Navbar({ cartData }) {
     const [textColor, setTextColor] = useState("text-white");
 
+    // 监听滚动事件
     window.addEventListener('scroll', function () {
         if (window.scrollY > 30) {
+            // 滚动超过30像素时，将文本颜色设置为黑色
             setTextColor("");
         } else {
+            // 滚动未超过30像素时，将文本颜色重新设置为白色
             setTextColor("text-white");
         }
     });
@@ -17,7 +19,7 @@ export default function Navbar({ cartData }) {
     return (
         <>
 
-            <nav className={`navbar navbar-expand-lg navbar-light  fixed-top ${textColor}`}>
+            <nav className={`navbar navbar-expand-lg navbar-light fixed-top ${textColor}`}>
                 <div className="container">
                     <NavLink className="navbar-brand" to="/">
                         <img src={logo} alt="Logo" width="40" height="40" className="d-inline-block align-text-top rounded-circle" />
