@@ -41,11 +41,11 @@ function CheckOut() {
     return (
 
         <div className='bg-light pt-5 pb-7'>
-            <div className='container'>
+            <div className='container product-mt'>
                 <div className='row justify-content-center flex-md-row flex-column-reverse'>
                     <form className='col-md-6' onSubmit={handleSubmit(onSubmit)}>
                         <div className='bg-white p-4'>
-                            <h4 className='fw-bold'>外送資料</h4>
+                            <h4 className='fw-bold'>宅配資料</h4>
                             <div className='mb-2'>
                                 <Input
                                     id='email'
@@ -67,13 +67,13 @@ function CheckOut() {
                                     id='name'
                                     type='text'
                                     errors={errors}
-                                    labelText='使用者名稱'
+                                    labelText='客戶姓名'
                                     register={register}
                                     rules={{
-                                        required: '使用者名稱為必填',
+                                        required: '客戶姓名為必填',
                                         maxLength: {
                                             value: 10,
-                                            message: '使用者名稱長度不超過 10',
+                                            message: '客戶姓名長度不超過 10',
                                         },
                                     }}
                                 ></Input>
@@ -113,19 +113,19 @@ function CheckOut() {
                         </div>
                         <div className='d-flex flex-column-reverse flex-md-row mt-4 justify-content-between align-items-md-center align-items-end w-100'>
                             <Link className='text-dark mt-md-0 mt-3' to='/cart'>
-                                <i className='bi bi-chevron-left me-2'></i> 繼續點餐
+                                <i className='bi bi-chevron-left me-2'></i> 繼續選購
                             </Link>
                             <button
                                 type='submit'
                                 className='btn btn-dark py-3 px-7 rounded-0'
                             >
-                                送出表單
+                                送出訂單
                             </button>
                         </div>
                     </form>
                     <div className='col-md-4'>
                         <div className='border p-4 mb-4'>
-                            <h4 className='mb-4'>選購餐點</h4>
+                            <h4 className='mb-4'>訂單內容</h4>
                             {cartData?.carts?.map((item) => {
                                 return (
                                     <div className='d-flex' key={item.id}>
