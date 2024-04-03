@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/pb-shop/static/css/main.99d01b65.css",
-    "main.js": "/pb-shop/static/js/main.f7194eab.js",
-    "static/js/453.6690cf95.chunk.js": "/pb-shop/static/js/453.6690cf95.chunk.js",
-    "static/media/bootstrap-icons.woff?": "/pb-shop/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
-    "static/media/bootstrap-icons.woff2?": "/pb-shop/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
-    "static/media/Artboard 10 copy 5.png": "/pb-shop/static/media/Artboard 10 copy 5.0ed2193b8410d750c1a9.png",
-    "index.html": "/pb-shop/index.html",
-    "main.99d01b65.css.map": "/pb-shop/static/css/main.99d01b65.css.map",
-    "main.f7194eab.js.map": "/pb-shop/static/js/main.f7194eab.js.map",
-    "453.6690cf95.chunk.js.map": "/pb-shop/static/js/453.6690cf95.chunk.js.map"
+    "main.css": "/static/css/main.9e19dad3.css",
+    "main.js": "/static/js/main.7ed5956a.js",
+    "static/js/453.6690cf95.chunk.js": "/static/js/453.6690cf95.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
+    "static/media/Artboard 10 copy 5.png": "/static/media/Artboard 10 copy 5.0ed2193b8410d750c1a9.png",
+    "index.html": "/index.html",
+    "main.9e19dad3.css.map": "/static/css/main.9e19dad3.css.map",
+    "main.7ed5956a.js.map": "/static/js/main.7ed5956a.js.map",
+    "453.6690cf95.chunk.js.map": "/static/js/453.6690cf95.chunk.js.map"
   },
   "entrypoints": [
-    "/pb-shopstatic/css/main.99d01b65.css",
-    "/pb-shopstatic/js/main.f7194eab.js"
+    "static/css/main.9e19dad3.css",
+    "static/js/main.7ed5956a.js"
   ]
 }
