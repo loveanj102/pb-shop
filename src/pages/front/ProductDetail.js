@@ -59,7 +59,7 @@ function ProductDetail() {
 
 
     return (<>
-        <div className="container">
+        <div className="container product-mt">
             <div className="row align-items-center">
                 <div className="col-md-7">
                     {/* <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
@@ -83,7 +83,7 @@ function ProductDetail() {
                             <span className="sr-only">Next</span>
                         </a>
                     </div> */}
-                    <img src={product.imageUrl} class="img-fluid rounded" alt="..."></img>
+                    <img src={product.imageUrl} className="img-fluid rounded" alt="..."></img>
 
                 </div>
 

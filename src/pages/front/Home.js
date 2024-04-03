@@ -53,12 +53,12 @@ export default function Home() {
                             <div className="card border-0 mb-4">
                                 <img
                                     src={product.imageUrl}
-                                    className="card-img-top rounded-0"
+                                    className="card-img-top rounded-2 object-cover"
                                     alt="..."
                                     height={200}
                                 />
                                 <div className="card-body text-center">
-                                    <h4><Link to={`/product/${product.id}`}>{product.title}</Link></h4>
+                                    <h4><Link className="card-a" to={`/product/${product.id}`}>{product.title}</Link></h4>
                                     <div className="d-flex justify-content-between">
                                         <p className="card-text text-muted mb-0">
                                             Loorem ipsum dolor sit amet, consetetur sadipscing elitr, sed

@@ -21,10 +21,10 @@ function ProductList({ ...product }) {
                     <p className="card-text mb-0">NT${product.price}</p>
                     <p className="text-muted mt-3"></p>
                     <div className="d-flex justify-content-end">
-                        <button
+                        <Link
                             className="btn btn-outline-green"
-                            href="./checkout.html"
-                            >Add to Cart</button>
+                            to={`/product/${product.id}`}>Learn More
+                        </Link>
                     </div>
                 </div>
             </div>
