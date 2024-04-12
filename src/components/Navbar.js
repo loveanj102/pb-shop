@@ -30,7 +30,7 @@ export default function Navbar({ cartData }) {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
                             <NavLink className={`nav-item nav-link ${textColor}`} to='product'>Product</NavLink>
-                            <NavLink className={`nav-item nav-link ${textColor}`} to='form'>Contact Us</NavLink>
+                            {/* <NavLink className={`nav-item nav-link ${textColor}`} to='form'>Contact Us</NavLink> */}
                             <NavLink to='/cart' className={`nav-link position-relative ${textColor} `}>
                                 <i className='bi bi-bag-fill '></i>
                                 <span className='position-absolute top-20 start-95 translate-middle badge rounded-pill bg-danger'>
