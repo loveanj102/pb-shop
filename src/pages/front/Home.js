@@ -106,7 +106,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        <div className="bg-light py-4">
+        {/* <div className="bg-light py-4">
             <div className="container">
                 <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center align-items-start">
                     <p className="mb-0 fw-bold px-2">Départ</p>
@@ -119,8 +119,8 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> */}
+        {/* </div> */}
 
 
     </>)
